@@ -127,8 +127,8 @@ const Right = () => {
                     </SearchIcon>
                 </SearchContainer>
                 <UsersListContainer>
-                    {users.length > 0
-                        ? users.filter(user => followingSet.has(user.myAddress)).map((user, index) => {
+                    {filteredMyFollowingUsers.length > 0
+                        ? filteredMyFollowingUsers.filter(user => followingSet.has(user.myAddress)).map((user, index) => {
                             return (
                                 <UserRow key={index}>
                                     <User>
@@ -152,7 +152,7 @@ const Right = () => {
                                 </UserRow>
                             );
                         })
-                        : users.length === 0 && queryParam.length > 0 ? <NoUserContainer>Sorry no user found :(</NoUserContainer>
+                        : users.length === 0 && queryParam.length > 0 ? <NoUserContainer>{`Sorry no user found :(`}</NoUserContainer>
                             : filteredMyFollowingUsers.filter(user => followingSet.has(user.myAddress)).map((user) => {
                                 return (
                                     <UserRow key={user.id}>
